@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:16:13 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/18 16:38:39 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:40:31 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "mlx.h"
 #include "fractal.h"
 
-int main(void)
+int	main(void)
 {
 	void	*conn;
 	void	*window;

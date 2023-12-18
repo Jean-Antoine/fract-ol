@@ -30,4 +30,8 @@ re: fclean all
 test: $(NAME)
 	./$(NAME)
 
+norme:
+	norminette $(SRCS) main.c
+	norminette -R CheckDefine $(HEADER_D)*.h
+
 .PHONY: clean fclean re
