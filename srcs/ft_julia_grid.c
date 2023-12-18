@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 14:14:34 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/18 14:47:22 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:12:03 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static int	ft_iterate(float r, float i, t_cmplx c)
 	return (iter);
 }
 
-
 t_pxl	*ft_julia_grid(t_pxl *grid, t_cmplx c)
 {
 	t_pxl	*node;
@@ -34,10 +33,7 @@ t_pxl	*ft_julia_grid(t_pxl *grid, t_cmplx c)
 	node = grid;
 	while (node)
 	{
-
 		node->color = ft_iterate(node->r, node->i, c);
-		if (node->color)
-			__builtin_printf("Pixel %d,%d i.e. %f + %fi is %d\n", node->x, node->y, node->r, node->i, node->color);
 		node = node->next;
 	}
 	return (grid);

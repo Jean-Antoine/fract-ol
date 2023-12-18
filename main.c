@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:16:13 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/18 14:49:06 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:38:39 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ int main(void)
 	void	*window;
 	t_pxl	*grid;
 	t_pxl	center;
+	t_pxl	origin;
 
-	center.r = 1.6;
-	center.i = 1.6;
+	center.r = 0;
+	center.i = 0;
+	origin.r = 0.6;
+	origin.i = 0.2;
 	conn = mlx_init();
 	window = mlx_new_window(conn, 500, 500, "mlx 42");
-	grid = ft_get_grid(center, 200, 1000, 1000);
-	grid = ft_julia_grid(grid, center);
+	grid = ft_get_grid(center, 150, 500, 500);
+	grid = ft_julia_grid(grid, origin);
 	ft_display_grid(grid, conn, window);
 	ft_clear_grid(grid);
-	sleep(999999999);
-	// mlx_destroy_window(conn, window);
+	sleep(2);
+	mlx_destroy_window(conn, window);
 }

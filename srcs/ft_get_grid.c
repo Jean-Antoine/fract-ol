@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 09:25:02 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/18 14:25:38 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/18 16:11:52 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ t_pxl	*ft_get_grid(t_cmplx center, int zoom, int width, int height)
 		j = 0;
 		while (j < height)
 		{
-			node->next = ft_new_node(i, j, center.r + (i - width / 2) / zoom,
-					center.i + (j - height / 2) / zoom);
+			node->next = ft_new_node(i, j,
+					center.r + ((float)i - (float)width / 2) / (float)zoom,
+					center.i + ((float)j - (float)height / 2) / (float)zoom);
 			node = node->next;
 			j++;
 		}
