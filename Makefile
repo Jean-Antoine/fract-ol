@@ -4,6 +4,7 @@ SRCS_F				= ft_new_node.c\
 						ft_get_grid.c\
 						ft_clear_grid.c\
 						ft_julia_grid.c\
+						ft_mandelbrot_grid.c\
 						ft_display_grid.c
 SRCS 				= $(addprefix $(SRCS_D), $(SRCS_F))
 NAME 				= fractol
