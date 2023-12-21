@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:16:13 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/21 17:45:31 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/21 22:31:36 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	window.zoom = 100;
 	window.width = 1000;
 	window.height = 500;
-	window.type = 0;
+	window.type = 1;
 	window.center.r = 0;
 	window.center.i = 0;
 	window.origin.r = 0.285;

@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:04:57 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/21 22:12:46 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/21 22:30:33 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int ft_mouse_hook(int button, int x, int y, void *param)
     window->center.i = zoom_center.i - (y - window->height / 2) / (window->zoom * zoom_factor);
 	window->zoom *= zoom_factor;
 	ft_update_window(param);
+	__builtin_printf("button: %d\n", button);
 	return (0);
 }
