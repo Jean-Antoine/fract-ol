@@ -1,12 +1,16 @@
 SRCS_D				= ./srcs/
 HEADER_D			= ./include/
-SRCS_F				= ft_new_node.c\
-						ft_get_grid.c\
+SRCS_F				= ft_new_pxl.c\
+						ft_pxl_to_cmplx.c \
+						ft_update_grid.c\
 						ft_clear_grid.c\
 						ft_julia_grid.c\
 						ft_mandelbrot_grid.c\
-						ft_display_grid.c \
-						ft_key_hook.c
+						ft_grid_to_img.c \
+						ft_key_hook.c \
+						ft_expose_hook.c \
+						ft_mouse_hook.c \
+						ft_update_window.c
 SRCS 				= $(addprefix $(SRCS_D), $(SRCS_F))
 NAME 				= fractol
 CFLAGS 				= -Wall -Wextra -Werror
@@ -29,7 +33,7 @@ fclean: clean
 
 re: fclean all
 
-test: $(NAME)
+test: re
 	./$(NAME)
 
 norme:

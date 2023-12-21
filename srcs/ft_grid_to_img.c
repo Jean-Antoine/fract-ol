@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_grid.c                                      :+:      :+:    :+:   */
+/*   ft_grid_to_img.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 09:25:02 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/18 16:11:52 by jeada-si         ###   ########.fr       */
+/*   Created: 2023/12/18 14:22:07 by jeada-si          #+#    #+#             */
+/*   Updated: 2023/12/21 16:28:20 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-t_pxl	*ft_get_grid(t_cmplx center, int zoom, int width, int height)
-{
-	int		i;
-	int		j;
-	t_pxl	*grid;
-	t_pxl	*node;
+// static int	create_rgb(int r, int g, int b)
+// {
+// 	return (r << 16 | g << 8 | b);
+// }
 
-	i = 0;
-	grid = ft_new_node(0, 0, 0, 0);
+void	ft_grid_to_img(t_pxl *grid, t_img *img)
+{
+	t_pxl	*node;
+	char	*offset;
+	
 	node = grid;
-	while (i < width)
+	while (node)
 	{
-		j = 0;
-		while (j < height)
-		{
-			node->next = ft_new_node(i, j,
-					center.r + ((float)i - (float)width / 2) / (float)zoom,
-					center.i + ((float)j - (float)height / 2) / (float)zoom);
-			node = node->next;
-			j++;
-		}
-		i++;
+		offset = img->addr + (node->y * img->line_length + node->x
+				* (img->bits_per_pixel / 8));
+		// if (node->color == MAX_ITER)
+		// 	*(unsigned int *)offset = 0;
+		// else
+			*(unsigned int *)offset = node->color * 10 << 16;
+		node = node->next; 
 	}
-	node = grid;
-	grid = grid->next;
-	free(node);
-	return (grid);
 }
