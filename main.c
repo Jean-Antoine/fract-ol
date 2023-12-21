@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:16:13 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/19 15:51:25 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/21 11:36:02 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,23 @@ int	main(void)
 	t_pxl	*grid;
 	t_pxl	center;
 	t_pxl	origin;
+	t_img	img;
 
 	center.r = 0;
 	center.i = 0;
 	origin.r = 0.285;
 	origin.i = 0.01;
 	conn = mlx_init();
-	window = mlx_new_window(conn, 1000, 1000, "mlx 42");
-	grid = ft_get_grid(center, 400, 1000, 1000);
-	// grid = ft_mandelbrot_grid(grid);
-	grid = ft_julia_grid(grid, origin);
-	ft_display_grid(grid, conn, window);
+	window = mlx_new_window(conn, 1500, 1000, "mlx 42");
+	img.img = mlx_new_image(conn, 1500, 1000);
+	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel,
+			&img.line_length, &img.endian);
+	grid = ft_get_grid(center, 500, 1500, 1000);
+	grid = ft_mandelbrot_grid(grid);
+	// grid = ft_julia_grid(grid, origin);
+	ft_grid_to_img(grid, &img);
+	mlx_put_image_to_window(conn, window, img.img, 0, 0);
 	ft_clear_grid(grid);
-	sleep(3);	
-	mlx_destroy_window(conn, window);
+	mlx_key_hook(window, ft_key_hook, conn);
+	mlx_loop(conn);	
 }
