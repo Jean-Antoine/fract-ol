@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 11:16:13 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 17:02:41 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:24:39 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(void)
 			window.width, window.height, "Fract-ol");
 	ft_update_window(&window);
 	mlx_key_hook(window.window, ft_key_hook, &window);
-	mlx_expose_hook(window.window, ft_expose_hook, &window);
 	mlx_mouse_hook(window.window, ft_mouse_hook, &window);
 	mlx_hook(window.window, 17, 0, ft_close_window, &window);
 	mlx_loop(window.conn);

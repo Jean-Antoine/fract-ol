@@ -8,10 +8,12 @@ SRCS_F				= ft_new_pxl.c\
 						ft_julia_grid.c\
 						ft_mandelbrot_grid.c\
 						ft_grid_to_img.c \
+						ft_clear_img.c \
 						ft_key_hook.c \
 						ft_expose_hook.c \
 						ft_mouse_hook.c \
 						ft_update_window.c \
+						ft_close_window.c \
 						ft_home_view.c
 SRCS 				= $(addprefix $(SRCS_D), $(SRCS_F))
 NAME 				= fractol

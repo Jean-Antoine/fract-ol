@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:32:29 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 16:58:00 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:11:09 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	ft_clear_grid(t_pxl *grid);
 t_pxl	*ft_julia_grid(t_pxl *grid, t_cmplx c);
 t_pxl	*ft_mandelbrot_grid(t_pxl *grid);
 void	ft_grid_to_img(t_pxl *grid, t_img *img);
+void	ft_clear_img(t_window *window, t_img *img);
 void	ft_clear_grid(t_pxl *grid);
 int		ft_key_hook(int keycode, void *param);
 int		ft_expose_hook(void *param);

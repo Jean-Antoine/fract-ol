@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:42:05 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 16:58:25 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:16:58 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,6 @@ static t_img	*ft_create_img(t_window *window)
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
 	return (img);
-}
-
-static void	ft_clear_img(t_window *window, t_img *img)
-{
-	if (!img)
-		return ;
-	mlx_destroy_image(window->conn, img->img);
-	free(img);
 }
 
 static void	ft_update_img(t_window *window)
@@ -57,17 +49,4 @@ void	ft_update_window(t_window *window)
 	else if (window->type == JULIA)
 		window->grid = ft_julia_grid(window->grid, window->origin);
 	ft_update_img(window);
-}
-
-int	ft_close_window(t_window *window)
-{
-	if (!window)
-		return (0);
-	ft_clear_grid(window->grid);
-	ft_clear_img(window, window->current);
-	mlx_destroy_window(window->conn, window->window);
-	mlx_destroy_display(window->conn);
-	free(window->conn);
-	exit(0);
-	return (0);
 }
