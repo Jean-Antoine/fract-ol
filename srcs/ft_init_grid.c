@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot_grid.c                               :+:      :+:    :+:   */
+/*   ft_init_grid.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/19 15:30:33 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 15:06:34 by jeada-si         ###   ########.fr       */
+/*   Created: 2023/12/17 09:25:02 by jeada-si          #+#    #+#             */
+/*   Updated: 2023/12/22 16:48:11 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-static int	ft_iterate(t_cmplx z)
+void	ft_init_grid(t_window *window)
 {
-	int		iter;
-	float	tmp;
-	float	r0;
-	float	i0;
-
-	r0 = z.r;
-	i0 = z.i;
-	iter = 0;
-	while (iter < MAX_ITER && (z.r * z.r + z.i * z.i) < 4)
-	{
-		tmp = z.r;
-		z.r = z.r * z.r - z.i * z.i + r0;
-		z.i = 2 * tmp * z.i + i0;
-		iter++;
-	}
-	return (iter);
-}
-
-t_pxl	*ft_mandelbrot_grid(t_pxl *grid)
-{
+	int		i;
+	int		j;
 	t_pxl	*node;
 
-	node = grid;
-	while (node)
+	i = 0;
+	window->grid = ft_new_pxl(0, 0);
+	node = window->grid;
+	while (i < window->width)
 	{
-		node->color = ft_iterate(node->z);
-		node = node->next;
+		j = 0;
+		while (j < window->height)
+		{
+			node->next = ft_new_pxl(i, j);
+			node = node->next;
+			j++;
+		}
+		i++;
 	}
-	return (grid);
+	node = window->grid;
+	window->grid = window->grid->next;
+	free(node);
 }

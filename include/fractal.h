@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 13:32:29 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/21 16:46:12 by jeada-si         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:58:00 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 # include <math.h>
 # include <stdlib.h>
 # include <stdio.h>
-# define MAX_ITER 255
+# define MAX_ITER 300
+# define JULIA 1
+# define MANDELBROT 2
 
 typedef struct s_cmplx
 {
@@ -56,8 +58,9 @@ typedef struct s_window
 	int		type;
 }				t_window;
 
-t_pxl	*ft_new_pxl(int x, int y, t_window *window);
+t_pxl	*ft_new_pxl(int x, int y);
 t_cmplx	ft_pxl_to_cmplx(float x, float y, t_window *window);
+void	ft_init_grid(t_window *window);
 void	ft_update_grid(t_window *window);
 void	ft_clear_grid(t_pxl *grid);   
 t_pxl	*ft_julia_grid(t_pxl *grid, t_cmplx c);
@@ -68,5 +71,7 @@ int		ft_key_hook(int keycode, void *param);
 int		ft_expose_hook(void *param);
 int		ft_mouse_hook(int button, int x, int y, void *param);
 void	ft_update_window(t_window *window);
+void	ft_home_view(t_window *window);
+int		ft_close_window(t_window *window);
 
 #endif

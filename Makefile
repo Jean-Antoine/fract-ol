@@ -2,6 +2,7 @@ SRCS_D				= ./srcs/
 HEADER_D			= ./include/
 SRCS_F				= ft_new_pxl.c\
 						ft_pxl_to_cmplx.c \
+						ft_init_grid.c \
 						ft_update_grid.c\
 						ft_clear_grid.c\
 						ft_julia_grid.c\
@@ -10,7 +11,8 @@ SRCS_F				= ft_new_pxl.c\
 						ft_key_hook.c \
 						ft_expose_hook.c \
 						ft_mouse_hook.c \
-						ft_update_window.c
+						ft_update_window.c \
+						ft_home_view.c
 SRCS 				= $(addprefix $(SRCS_D), $(SRCS_F))
 NAME 				= fractol
 CFLAGS 				= -Wall -Wextra -Werror
