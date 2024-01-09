@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:04:57 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 17:09:12 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:19:57 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_mouse_hook(int button, int x, int y, void *param)
 		zoom_factor = (button == 5) * 1 / 1.25 + (button == 4) * 1.25;
 		zoom_center = ft_pxl_to_cmplx((float)x, (float)y, window);
 		window->center.r = zoom_center.r
-			- (x - window->width / 2) / (window->zoom * zoom_factor);
+			- (x - WINDOW_WIDTH / 2) / (window->zoom * zoom_factor);
 		window->center.i = zoom_center.i
-			- (y - window->height / 2) / (window->zoom * zoom_factor);
+			- (y - WINDOW_HEIGHT / 2) / (window->zoom * zoom_factor);
 		window->zoom *= zoom_factor;
 	}
 	ft_update_window(param);

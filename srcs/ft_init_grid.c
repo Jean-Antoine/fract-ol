@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 09:25:02 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 16:48:11 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:19:57 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	ft_init_grid(t_window *window)
 	i = 0;
 	window->grid = ft_new_pxl(0, 0);
 	node = window->grid;
-	while (i < window->width)
+	while (i < WINDOW_WIDTH)
 	{
 		j = 0;
-		while (j < window->height)
+		while (j < WINDOW_HEIGHT)
 		{
 			node->next = ft_new_pxl(i, j);
 			node = node->next;

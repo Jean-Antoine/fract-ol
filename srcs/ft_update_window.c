@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:42:05 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 17:16:58 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/01/09 12:51:43 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_img	*ft_create_img(t_window *window)
 	img = (t_img *)malloc(sizeof(t_img));
 	if (!img)
 		return (NULL);
-	img->img = mlx_new_image(window->conn, window->width, window->height);
+	img->img = mlx_new_image(window->conn, WINDOW_WIDTH, WINDOW_HEIGHT);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);
 	return (img);
@@ -48,5 +48,7 @@ void	ft_update_window(t_window *window)
 		window->grid = ft_mandelbrot_grid(window->grid);
 	else if (window->type == JULIA)
 		window->grid = ft_julia_grid(window->grid, window->origin);
+	else if (window->type == BURNINGSHIP)
+		window->grid = ft_burningship_grid(window->grid);
 	ft_update_img(window);
 }

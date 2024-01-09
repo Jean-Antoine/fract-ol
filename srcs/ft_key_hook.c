@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 10:36:26 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 15:50:34 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:19:57 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ int	ft_key_hook(int keycode, void *param)
 		ft_home_view(window);
 	else if (keycode == XK_Left)
 		window->center.r = ft_pxl_to_cmplx(
-				window->width / 2 - 0.1 * window->width, 0, window).r;
+				WINDOW_WIDTH / 2 - 0.1 * WINDOW_WIDTH, 0, window).r;
 	else if (keycode == XK_Up)
 		window->center.i = ft_pxl_to_cmplx(
-				0, window->height / 2 - 0.1 * window->height, window).i;
+				0, WINDOW_HEIGHT / 2 - 0.1 * WINDOW_HEIGHT, window).i;
 	else if (keycode == XK_Right)
 		window->center.r = ft_pxl_to_cmplx(
-				window->width / 2 + 0.1 * window->width, 0, window).r;
+				WINDOW_WIDTH / 2 + 0.1 * WINDOW_WIDTH, 0, window).r;
 	else if (keycode == XK_Down)
 		window->center.i = ft_pxl_to_cmplx(
-				0, window->height / 2 + 0.1 * window->height, window).i;
+				0, WINDOW_HEIGHT / 2 + 0.1 * WINDOW_HEIGHT, window).i;
 	ft_update_window(param);
 	return (0);
 }

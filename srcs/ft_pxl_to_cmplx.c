@@ -6,7 +6,7 @@
 /*   By: jeada-si <jeada-si@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:21:56 by jeada-si          #+#    #+#             */
-/*   Updated: 2023/12/22 15:06:23 by jeada-si         ###   ########.fr       */
+/*   Updated: 2024/01/09 11:19:57 by jeada-si         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_cmplx	ft_pxl_to_cmplx(float x, float y, t_window *window)
 {
 	t_cmplx	cmplx;
 
-	cmplx.r = (x - window->width / 2) / window->zoom + window->center.r;
-	cmplx.i = (y - window->height / 2) / window->zoom + window->center.i;
+	cmplx.r = (x - WINDOW_WIDTH / 2) / window->zoom + window->center.r;
+	cmplx.i = (y - WINDOW_HEIGHT / 2) / window->zoom + window->center.i;
 	return (cmplx);
 }
